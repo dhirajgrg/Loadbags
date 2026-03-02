@@ -1,12 +1,72 @@
-# React + Vite
+# Loadbags
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live demo: https://loadbags.onrender.com
 
-Currently, two official plugins are available:
+![alt text](image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## Expanding the ESLint configuration
+Loadbags is a lightweight React + Vite frontend for managing shopping bags/items. This repository contains the UI used in the demo linked above.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Add, remove, and manage items
+- Responsive UI built with React components
+- Simple state management suitable for small apps
+
+## Tech Stack
+
+- React (JSX)
+- Vite
+- Plain CSS
+
+## Getting Started
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/yourusername/loadbags.git
+cd loadbags
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview production build locally:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+- `src/` — React source files
+- `src/components/` — UI components (Header, Form, Items, List, Footer, Overlay)
+- `index.html`, `vite.config.js` — Vite setup
+
+## Demo
+
+Try the live demo: https://loadbags.onrender.com
+
+## Contributing
+
+Contributions are welcome. Open an issue or submit a pull request describing your change.
+
+## License
+
+This project is provided under the MIT License. See LICENSE for details.
+
+## Contact
+
+If you need help, open an issue in this repository.
+
