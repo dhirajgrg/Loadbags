@@ -28,11 +28,11 @@ function Form({ onAddItem }) {
   }
   return (
     <form
-      className="w-full bg-zinc-100 border-b-2  px-4 py-6 flex flex-col gap-4 sm:flex-row sm:justify-center sm:items-center sm:gap-6"
+      className="w-full bg-zinc-100 border border-zinc-300  px-4 py-6 flex flex-col gap-4 sm:flex-row sm:justify-center sm:items-center sm:gap-6"
       onSubmit={handleSubmit}
     >
       <select
-        className="w-full  sm:w-auto border-[1px] border-zinc-300 rounded-md px-3 py-2 text-zinc-600 bg-white cursor-pointer"
+        className="w-full  sm:w-auto border border-zinc-300 rounded-md px-3 py-2 text-zinc-600 bg-white cursor-pointer"
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
       >
@@ -44,7 +44,7 @@ function Form({ onAddItem }) {
       </select>
 
       <input
-        className="w-full sm:flex-1 max-w-md border-[1px] border-zinc-300 text-zinc-600 rounded-md px-4 py-2"
+        className="w-full sm:flex-1 max-w-md border border-zinc-300 text-zinc-600 rounded-md px-4 py-2"
         type="text"
         id="description"
         placeholder="What's on your wacky list?"
