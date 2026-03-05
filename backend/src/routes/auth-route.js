@@ -17,7 +17,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     session: false,
-    failureRedirect: "http://localhost:5173/login",
+    failureRedirect: "http://localhost:5173/",
   }),
   (req, res) => {
     // Create JWT
@@ -32,7 +32,7 @@ router.get(
       secure: false,
     });
 
-    res.redirect("http://localhost:5173/dashboard");
+    res.redirect("http://localhost:5173/home");
   },
 );
 
