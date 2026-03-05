@@ -3,8 +3,12 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema(
   {
     googleId: String,
-    name: String,
+    fullName: String,
     email: { type: String, unique: true },
+    password: {
+      type: String,
+      select: false,
+    },
     avatar: String,
   },
   { timestamps: true },
