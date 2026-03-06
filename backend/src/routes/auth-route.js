@@ -83,7 +83,8 @@ router.post("/login", async (req, res) => {
 
     if (!user.password) {
       return res.status(400).json({
-        message: "Use Google login for this account",
+        message: "User created with Google. Please login with Google.",
+        useGoogle: true,
       });
     }
    
