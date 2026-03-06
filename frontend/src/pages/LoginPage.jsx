@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import AuthModal from "../components/AuthModel";
+import api from '../api/axios'
 
 const LoginPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,8 +16,8 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+      const response = await api.post(
+        "/api/auth/login",
         formData, // Simplified
         { withCredentials: true },
       );
@@ -39,7 +39,8 @@ const LoginPage = () => {
   };
 
   const googleLogin = () => {
-    window.location.href = "http://localhost:3000/api/auth/google";
+    
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`;
   };
 
   return (
@@ -141,7 +142,7 @@ const LoginPage = () => {
         onClose={() => setShowModal(false)}
         onGoogleClick={() => {
           setShowModal(false); // Close modal
-          window.location.href = "http://localhost:3000/api/auth/google"; // Trigger OAuth
+          window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`; // Trigger OAuth
         }}
       />
     </div>

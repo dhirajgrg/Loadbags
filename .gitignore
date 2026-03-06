@@ -1,5 +1,6 @@
 .env
 node_modules
+dist
 
 
 /backend/.env*
@@ -7,3 +8,5 @@ node_modules
 
 backend/node_modules
 fronted/node_modules
+fronted/dist
+

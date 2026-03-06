@@ -1,15 +1,15 @@
 import React from "react";
 import { GiSchoolBag } from "react-icons/gi";
 import { MdLogout } from "react-icons/md"; // Importing a logout icon
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from '../api/axios'
 
 function Header() {
   const navigate = useNavigate();
   const handleLogout = async () => {
     console.log("clicked logout");
     try {
-      await axios.get("http://localhost:3000/api/auth/logout");
+      await api.get("/api/auth/logout");
       navigate("/");
     } catch (error) {
       console.error(error.message);

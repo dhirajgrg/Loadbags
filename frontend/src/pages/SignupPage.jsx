@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 
 const SignupPage = () => {
   const [userExistsMessage, setUserExistsMessage] = useState(false);
@@ -25,8 +25,8 @@ const SignupPage = () => {
     }
     setUserExistsMessage(false);
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+      const response = await api.post(
+        "/api/auth/signup",
         formData,
         { withCredentials: true },
       );
@@ -46,7 +46,7 @@ const SignupPage = () => {
   };
 
   const googleLogin = () => {
-    window.location.href = "http://localhost:3000/api/auth/google";
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/auth/google`;
   };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">

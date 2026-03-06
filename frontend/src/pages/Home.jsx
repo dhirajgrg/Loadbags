@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Header from "../components/Header";
 import Form from "../components/Form";
 import List from "../components/List";
 import Footer from "../components/Footer";
 import Overlay from "../components/Overlay";
 import Items from "../components/Items";
-import { useState } from "react";
-import axios from "axios";
+import api from '../api/axios'
 
 function Home() {
   // states
@@ -17,7 +16,7 @@ function Home() {
   useEffect(() => {
     async function fetchItems() {
       try {
-        const response = await axios.get("http://localhost:3000/api/items", {
+        const response = await api.get('/api/items', {
           withCredentials: true,
         });
         const items = response.data.map((item) => ({
@@ -45,8 +44,7 @@ function Home() {
   // handler functions
   async function handleAddItem(newItem) {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/items",
+      const response = await api.post('/api/items',
         {
           title: newItem.title,
           quantity: newItem.quantity,
@@ -62,10 +60,9 @@ function Home() {
   }
   async function handleToggleItem(id) {
     try {
-      const response = await axios.patch(
-        `http://localhost:3000/api/items/${id}/toggle`,
-        {},
-        { withCredentials: true },
+      const response = await api.patch(
+        `/api/items/${id}/toggle`,
+                { withCredentials: true },
       );
       const updated = response.data;
       setData((prev) =>
@@ -77,8 +74,8 @@ function Home() {
   }
   async function handleDeleteItem(id) {
     try {
-      const response = await axios.delete(
-        `http://localhost:3000/api/items/${id}`,
+      const response = await api.delete(
+        `/api/items/${id}`,
         { withCredentials: true },
       );
       console.log(response.data);
@@ -91,7 +88,7 @@ function Home() {
 
   async function handleConfirm() {
     try {
-      const response = await axios.delete("http://localhost:3000/api/items", {
+      const response = await api.delete("/api/items", {
         withCredentials: true,
       });
       console.log(response.data);
