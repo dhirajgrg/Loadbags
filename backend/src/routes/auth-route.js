@@ -146,25 +146,28 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     session: false,
-    failureRedirect: "http://localhost:5173/",
+    failureRedirect: process.env.FRONTEND_URL,
   }),
   async (req, res) => {
     try {
       const user = req.user;
 
-     
-    const token=jwt.sign({id:user._id,email:user.email},process.env.JWT_SECRET,{
-      expiresIn:"30d"
-    })
-    res.cookie("token",token,{
-      maxAge:60*60*24,
-      httpOnly:true,
-      secure:false
-    })
+      const token = jwt.sign(
+        { id: user._id, email: user.email },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: "30d",
+        },
+      );
+      res.cookie("token", token, {
+        maxAge: 60 * 60 * 24,
+        httpOnly: true,
+        secure: false,
+      });
 
-      res.redirect("http://localhost:5173/home");
+      res.redirect(`${process.env.FRONTEND_URL}/home`);
     } catch (err) {
-      res.redirect("http://localhost:5173/");
+      res.redirect(process.env.FRONTEND_URL);
     }
   },
 );
